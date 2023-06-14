@@ -7,6 +7,8 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.Set;
+
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
@@ -21,13 +23,15 @@ public class Logistique implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="id_log")
-    private int idLog;
+    private Long idLog;
     @Column(name="nom_log")
 
     private String NomLog;
     @Column(name="type_log")
     private String TypeLog;
 
-    //Relation avec le user
+    //Relation User
+    @ManyToMany(mappedBy="Logistiques", cascade = CascadeType.ALL)
+    private Set<User> users;
 
 }

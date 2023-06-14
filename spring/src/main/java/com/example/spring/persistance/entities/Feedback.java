@@ -21,12 +21,14 @@ public class Feedback implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="ID_Feed")
-    private int idFeed;
+    private Long idFeed;
     @Column(name="Desc_Feed")
     private String description;
     @Column(name="Date_Feed")
     private Date dateFeed;
-    @ManyToOne
-    @JoinColumn(name = "id_user")
-    private User user;
+
+
+    //Relation user
+    @ManyToOne(cascade = CascadeType.ALL)
+    User user;
 }

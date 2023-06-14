@@ -8,6 +8,8 @@ import lombok.Setter;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
+import java.util.Set;
+
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
@@ -21,7 +23,7 @@ public class Formation implements Serializable  {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="id_form")
-    private int idForm;
+    private Long idForm;
     @Column(name="nom_form")
     private String nom;
     @Column(name="date_form")
@@ -29,5 +31,7 @@ public class Formation implements Serializable  {
     @Column(name="type_form")
     private String TypeForm;
 
-    //Relation avec le user
+    //Relation User
+    @ManyToMany(mappedBy="Formations", cascade = CascadeType.ALL)
+    private Set<User> users;
 }

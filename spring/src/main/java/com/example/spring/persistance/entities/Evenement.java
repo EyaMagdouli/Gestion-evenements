@@ -8,7 +8,7 @@ import lombok.Setter;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
-import java.util.List;
+import java.util.Set;
 
 @Entity
 @Table(name= "Event")
@@ -23,7 +23,7 @@ public class Evenement implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="id_event")
-    private int idEvent;
+    private Long idEvent;
     @Column(name="nom_event")
     private String nom;
     @Column(name="date_event")
@@ -34,6 +34,8 @@ public class Evenement implements Serializable {
     private String TypeEvent;
     @Column(name="desc_event")
     private String description;
-    @ManyToMany(mappedBy = "evenements")
-    private List<User> users;
+
+    //Relation User
+    @ManyToMany(mappedBy="Evenements", cascade = CascadeType.ALL)
+    private Set<User> users;
 }

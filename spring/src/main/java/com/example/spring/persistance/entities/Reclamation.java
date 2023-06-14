@@ -24,7 +24,7 @@ public class Reclamation implements Serializable  {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="id_rec")
-    private int idRec;
+    private Long idRec;
     @Column(name="desc_rec")
     private String description;
     @Column(name="date_rec")
@@ -32,7 +32,7 @@ public class Reclamation implements Serializable  {
     @Column(name="type_rec")
     private String typeRec;
 
-    @ManyToOne
-    @JoinColumn(name = "id_user")
-    private User user;
+    //Relation user
+    @ManyToOne(cascade = CascadeType.ALL)
+    User user;
 }
