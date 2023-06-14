@@ -1,17 +1,38 @@
 package com.example.spring.persistance.entities;
 
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import java.util.Date;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
-public class Reclamation {
+import javax.persistence.*;
+import java.io.Serializable;
+import java.util.Date;
+import java.util.List;
+
+@Entity
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+
+
+@Table(name="Reclamation")
+
+public class Reclamation implements Serializable  {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name="id_rec")
     private int idRec;
-
+    @Column(name="desc_rec")
     private String description;
+    @Column(name="date_rec")
     private Date dateRec;
+    @Column(name="type_rec")
     private String typeRec;
+
+    @ManyToOne
+    @JoinColumn(name = "id_user")
+    private User user;
 }

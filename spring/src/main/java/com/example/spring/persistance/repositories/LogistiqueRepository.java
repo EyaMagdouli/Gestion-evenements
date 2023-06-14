@@ -1,4 +1,7 @@
 package com.example.spring.persistance.repositories;
 
-public interface LogistiqueRepository {
+import com.example.spring.persistance.entities.Logistique;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface LogistiqueRepository extends JpaRepository<Logistique,Integer> {
 }

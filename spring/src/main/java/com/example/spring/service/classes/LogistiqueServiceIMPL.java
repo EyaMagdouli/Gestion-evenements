@@ -1,4 +1,8 @@
 package com.example.spring.service.classes;
 
-public class LogistiqueServiceIMPL {
+import com.example.spring.service.interfaces.ILogistiqueService;
+import org.springframework.stereotype.Service;
+
+@Service
+public class LogistiqueServiceIMPL implements ILogistiqueService {
 }
