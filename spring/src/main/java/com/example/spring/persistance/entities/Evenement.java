@@ -25,7 +25,7 @@ public class Evenement implements Serializable {
     @Column(name="id_event")
     private Long idEvent;
     @Column(name="nom_event")
-    private String nom;
+        private String nom;
     @Column(name="date_event")
 
     private Date dateEvent;
